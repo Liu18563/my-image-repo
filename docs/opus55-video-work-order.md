@@ -157,3 +157,18 @@ video/
 ## 7. 给执行方的启动指令（可直接粘贴）
 
 > 读 `docs/trip-plan-2027-autumn.md` 和本工单 `docs/opus55-video-work-order.md`。按 T1→T8 顺序执行；T6 全量渲染前先输出 5 张预览帧给我确认画风；每完成一个 T 在工单里把对应复选框打勾并提交一次。最终把 mp4 用 SendUserFile 发给我。
+
+---
+
+## 8. 执行记录（2026-10-02）
+
+| 任务 | 状态 | 与工单的偏差 |
+|---|---|---|
+| T1 初始化 | ✅ | Playwright 用预装 Chromium（`/opt/pw-browsers/chromium`）；d3-geo 改用完整 `d3` 包 |
+| T2 数据层 | ✅ | Wikidata / Wikimedia 被网络策略拦截 → 坐标为人工核对的近似值，明信片改用手绘插画（按第 6 节降级方案） |
+| T3 TTS | ✅ | Edge TTS 返回 403 → 改用本地 **sherpa-onnx + MeloTTS 中文女声**（MIT 许可），仍是纯 JS 调用（`sherpa-onnx-node`） |
+| T4 画风引擎 | ✅ | 纸纹 + 水彩多层晕染 + rough.js 描边，线条每 6 帧换一次种子 |
+| T5 组件 | ✅ | 原创"青岛小海鸥夫妻"（红围巾 / 黄毛线帽），明信片邮票与邮戳为原创 |
+| T6 渲染 | ✅ | 帧以 JPEG 流直接送进 ffmpeg，不落盘；转场为"撕纸揭页" |
+| T7 合成 | ✅ | 背景音乐为程序合成的原创拨弦琶音，旁白时侧链压低；响度 −16 LUFS；字幕直接画进画面 |
+| T8 验收 | ✅ | 见 `video/README.md`；mp4 体积小于 50MB，直接提交到 `video/out/` |

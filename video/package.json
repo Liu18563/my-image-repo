@@ -1,0 +1,26 @@
+{
+  "name": "trip-video",
+  "version": "1.0.0",
+  "description": "小海鸥的秋日长旅：1 分钟旅行动画（JS 逐帧渲染 + 本地 TTS）",
+  "type": "module",
+  "scripts": {
+    "model": "./fetch-model.sh",
+    "tts": "node src/tts/synth.mjs",
+    "bgm": "node src/audio/bgm.mjs",
+    "preview": "node src/capture.mjs --preview 100,330,520,700,880,1060,1230,1400,1560,1700",
+    "render": "node src/capture.mjs",
+    "mux": "node src/mux.mjs",
+    "all": "npm run tts && npm run bgm && npm run render && npm run mux"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@fontsource/caveat": "^5.3.0",
+    "d3": "^7.9.0",
+    "lxgw-wenkai-webfont": "^1.7.0",
+    "playwright": "^1.63.0",
+    "roughjs": "^4.6.6",
+    "sherpa-onnx-node": "^1.13.8",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
+  }
+}
